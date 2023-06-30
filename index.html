@@ -4,7 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    <title>My Website</title>
+    <title>Bently Motors</title>
     <style>
         /* CSS styles for the menu and footer */
         html, body {
@@ -17,12 +17,43 @@
         body {
             display: flex;
             flex-direction: column;
-            background: linear-gradient(to bottom, #f1f1f1, #bbb0b0);
-            animation: gradientAnimation 10s linear infinite;
+            background: linear-gradient(-180deg, #f1f1f1, #333, #f1f1f1, #333);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+            background-attachment: fixed;
+        }
+
+        #prelaoder {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            transition: opacity 2s ease-in-out;
+        }
+
+            #prelaoder video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        body.loaded #prelaoder {
+            display: none;
         }
 
         .content {
+            display:flex;
+            flex-direction:row;
             flex: 1;
+            justify-content:center;
+            margin-top:3%;
+            margin-right:5%;
+            margin-left:5%;
+            justify-content:space-between;
         }
 
         header {
@@ -31,6 +62,8 @@
             align-items: center;
             padding: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to bottom, #f1f1f1, #bbb0b0);
+            animation: gradientAnimation 10s linear infinite;
         }
 
         .logo {
@@ -59,7 +92,7 @@
                 }
 
                     ul.menu li a:hover {
-                        background-color: #ddd;
+                        font-weight:bold;
                     }
 
         footer {
@@ -68,23 +101,11 @@
             text-align: center;
         }
 
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
 
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
         .slideshow-container {
             max-width: 50%;
-            margin: auto;
-            float:right;
+            float: right;
+            position: relative;
         }
 
             .slideshow-container img {
@@ -95,9 +116,77 @@
             .slideshow-container .slide {
                 display: none;
             }
+
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-container video{
+            max-width:50%;
+        }
+
+        form {
+            display: flex;
+            max-width: 400px;
+            margin: 5% auto;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-content: space-around;
+            align-items: stretch;
+        }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
     </style>
 </head>
 <body>
+
+    <div id="prelaoder">
+        <video autoplay muted>
+            <source src="intro.mp4" type="video/mp4">
+            Your browser does not support html video
+        </video>
+    </div>
+
     <header>
         <div class="logo">
             <img style="width: 5%;margin-left:2%;" src="iX_Bentley_B_fit.png">
@@ -110,27 +199,78 @@
     </header>
 
     <div class="content">
-        <h1>Welcome to my website!</h1>
-        <p>This is the content of the home page.</p>
+        <div>
+            <h1>Experience Unparalleled Luxury and Performance with Bently</h1>
+            <p>Welcome to Bently, the epitome of luxury and sophistication in the world of automobiles. With a rich heritage spanning decades, Bently continues to redefine automotive excellence with its exquisite craftsmanship, cutting-edge technology, and unmatched performance.</p>
+            <p>Our lineup of luxury automobiles includes a range of sedans, coupes, convertibles, and SUVs, each reflecting the timeless elegance and distinctive style that Bently is renowned for. Whether you're looking for a powerful sports car or a spacious and luxurious SUV, our collection caters to the most discerning automotive enthusiasts.</p>
+            <p>But it's not just about the cars; it's about the exceptional service we provide. Our dedicated team of professionals is committed to delivering personalized assistance and ensuring that every aspect of your Bently ownership exceeds your expectations. From customization options to maintenance services, we are here to accompany you on your journey of automotive luxur</p>
+            <p>At Bently, we believe that luxury is not just about owning a car; it's an experience that indulges all your senses. From the moment you step into one of our meticulously crafted vehicles, you are transported into a world of opulence and refinement. Every detail, from the hand-stitched leather interiors to the precision-engineered engines, is carefully designed to provide an unparalleled driving experience.</p>
+        </div>
+
+
+        <div class="slideshow-container">
+            <div class="slide">
+                <img src="slide1.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="slide2.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="slide3.jpg" alt="Slide 3">
+            </div>
+        </div>
 
     </div>
 
-    <div class="slideshow-container">
-        <div class="slide">
-            <img src="slide1.jpg" alt="Slide 1">
+    <div class="content" style="margin-top:10%;">
+
+        <div class="slideshow-container" style="margin-right:5%;">
+            <div class="slide1">
+                <img src="slide4.jpg" alt="Slide 4">
+            </div>
         </div>
-        <div class="slide">
-            <img src="slide2.jpg" alt="Slide 2">
+
+        <div>
+            <h1>Our History</h1>
+            <p>Bentley has a rich and illustrious history that dates back over a century. Founded by Walter Owen Bentley in 1919, the brand quickly established itself as a symbol of luxury, craftsmanship, and performance.</p>
+            <p>The early years of Bentley were marked by innovative engineering and success in motorsports. In the 1920s, Bentley cars gained fame for their victories at prestigious racing events such as the 24 Hours of Le Mans. These victories solidified Bentley's reputation for exceptional performance and endurance.</p>
+            <p>In 1931, Bentley was acquired by Rolls-Royce, forming a powerful partnership that brought together two iconic British luxury brands. Under Rolls-Royce ownership, Bentley continued to thrive and develop its distinct identity, combining exquisite design, advanced technology, and handcrafted luxury.</p>
+            <p>Throughout the decades, Bentley has remained at the forefront of automotive excellence, producing some of the most iconic and desirable luxury cars in the world. Each Bentley vehicle is a testament to meticulous craftsmanship, with skilled artisans handcrafting every detail to perfection.</p>
         </div>
-        <div class="slide">
-            <img src="slide3.jpg" alt="Slide 3">
-        </div>
+
     </div>
+
+    <div class="video-container">
+        <h1>Our Products</h1>
+        <video controls="controls">
+            <source src="video1.mp4" type="video/mp4" />
+        </video>
+    </div>
+
+    <div>
+
+        <form>
+            <h1>Contact Form</h1>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Enter your message" rows="4" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
 
     <footer>
         <p>&copy; 2023 My Website. All rights reserved.</p>
     </footer>
     <script>
+
+        setTimeout(function () {
+            let body = document.getElementsByTagName("body")[0]
+            body.classList.add("loaded")
+        }, 5000)
 
         var slideIndex = 0;
         showSlides();
@@ -151,6 +291,24 @@
             // Change slide every 3 seconds
             setTimeout(showSlides, 3000);
         }
+
+
+        var videoContainer = document.querySelector('.video-container');
+
+        function fadeInOnScroll() {
+            var elementTop = videoContainer.getBoundingClientRect().top;
+            var elementBottom = videoContainer.getBoundingClientRect().bottom;
+
+            var isVisible = elementTop < window.innerHeight && elementBottom >= 0;
+
+            if (isVisible) {
+                videoContainer.classList.add('fade-in');
+            }
+        }
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('resize', fadeInOnScroll);
+        fadeInOnScroll();
     </script>
 </body>
 </html>
